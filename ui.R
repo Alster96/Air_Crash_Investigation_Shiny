@@ -2,7 +2,7 @@ library(shinydashboard)
 shinyUI(dashboardPage(
   dashboardHeader(title = "Air Crash Investigation"),
   dashboardSidebar(
-    sidebarUserPanel(img(src='plane.jpeg',style="width: 100px")),
+    sidebarUserPanel("George Alster"),
     sidebarMenu(
       menuItem("Interactive Globe ", tabName = "globe", icon = icon("map")),
       menuItem("Annual Analysis", tabName = "annual", icon = icon("database")),
