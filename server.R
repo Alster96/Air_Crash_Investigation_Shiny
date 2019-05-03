@@ -1,38 +1,50 @@
-shinyServer(function(input,output){
+shinyServer(function(input,output,session){
   
-  output$map <- renderGvis({
-    gvisGeoChart(state_stat, "state.name", input$selected,
-                 options=list(region="US", displayMode="regions", 
-                              resolution="provinces",
-                              width="auto", height="auto"))
-    # using width="auto" and height="auto" to
-    # automatically adjust the map size
-  })
-  output$hist = renderGvis(
-    gvisHistogram(state_stat[,input$selected, drop = FALSE])
-  )
-  output$table <- DT::renderDataTable({
-    datatable(state_stat, rownames=FALSE) %>% 
-      formatStyle(input$selected,  
-                  background="skyblue", fontWeight='bold')
-    # Highlight selected column using formatStyle
+  # observe({
+  #   if ("Select All" %in% input$myselect) {
+  #     # choose all the choices _except_ "Select All"
+  #     selected_choices <- setdiff(choice1, "Select All")
+  #     updateSelectInput(session, "myselect", selected = selected_choices)
+  #   }
+  # })
+  # 
+  # observe({
+  #   if ("Select All" %in% input$selected) {
+  #     # choose all the choices _except_ "Select All"
+  #     selected_choices <- setdiff(choice2, "Select All")
+  #     updateSelectInput(session, "selected", selected = selected_choices)
+  #   }
+  # })
+  
+  observe({
+    print(input$myselect)
   })
   
-  output$maxBox <- renderInfoBox({
-    max_value <- max(state_stat[,input$selected])
-    max_state <- 
-      state_stat$state.name[state_stat[,input$selected]==max_value]
-    infoBox(max_state, max_value, icon = icon("hand-o-up"))
+  observe({
+    print(input$selected)
   })
-  output$minBox <- renderInfoBox({
-    min_value <- min(state_stat[,input$selected])
-    min_state <- 
-      state_stat$state.name[state_stat[,input$selected]==min_value]
-    infoBox(min_state, min_value, icon = icon("hand-o-down"))
-  })
-  output$avgBox <- renderInfoBox(
-    infoBox(paste("AVG.", input$selected),
-            mean(state_stat[,input$selected]),
-            icon = icon("calculator"), fill = TRUE))
   
+  
+  
+  
+  
+  
+  
+  #this is the code for tab 3
+  # output$hist = renderGvis(
+  #   gvisHistogram(crash_df[,crash_df$Month,drop= FALSE])
+  # )
+  
+  output$plot1 = renderPlot({
+    data = crash_df$Month
+    hist(data)
+  })
+  
+  
+  crash_df %>% ggvis(~Month) %>% layer_histograms()
+
+  
+  
+  
+
 })
