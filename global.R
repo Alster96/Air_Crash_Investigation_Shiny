@@ -7,6 +7,7 @@ library(plotly)
 Sys.setlocale(locale="C")
 # read csv file into a dataframe 
 crash_df = read.csv(file = 'cleaned_data.csv', stringsAsFactors = FALSE)
+map_df = read.csv(file = "map_data.csv",stringsAsFactors = FALSE)
 head(crash_df)
 # create two variables with Operator and Type column values as choice
 choice1 = sort(Operators_list)
@@ -19,7 +20,7 @@ Type_list = crash_df$Type %>% unique()
 #ordering the months for tab 3
 crash_df$month = factor(crash_df$month, levels = month.abb)
 #ordering the dates for tab 2
-crash_df$Date <- factor(crash_df$Date, labels = dates,  ordered = T)
+#crash_df$Date <- factor(crash_df$Date, labels = dates,  ordered = T)
 crash_df$Date
 head(crash_df)
 crash_df$realdate = as.POSIXct(strptime(x = as.character(crash_df$Date),format = "%d/%m/%Y"),format= "%d/%m/%Y")
