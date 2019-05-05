@@ -26,8 +26,6 @@ shinyUI(dashboardPage(
         icon = icon("chart-bar")
       )
     ),
-    # selectizeInput("operator","Select Operator",choice1),
-    # selectizeInput("type","Select Aircraft Type",choice2)
     pickerInput(
       "operator",
       "Select Operator",
@@ -67,10 +65,11 @@ shinyUI(dashboardPage(
                 solidHeader = T,
                 width = NULL,
                 h4("This data was found from Socrata.com and contains over five thousand observations and thirteen different variables.
-                   The key information from this data is the location of the incident, the data at which it ocurred, the details of the vehicle and the 
+                   The key information from this data is the location of the incident, the date at which it ocurred, the details of the vehicle and the 
                    tally of fatalities. After downloading this data, a variety of cleaning and organising was required to ensure it could be easily manipulated. 
                    In addition, it was compiled with another dataset containing the latitude and longitude values of world cities in order to develop the 
-                   'Interactive Globe' tab.")
+                   'Interactive Globe' tab. To clarify any ambiguities, the variable 'ratio' is the proportion of fatalities to those on board and the variable 'ground' represents the 
+                   number of fatalities on the ground")
               )
             )),
             fluidRow(column(
@@ -100,7 +99,7 @@ shinyUI(dashboardPage(
                 box(width = 4, 
                   dateRangeInput(
                   "dates1",
-                  label = h3("Date range"), 
+                  label = h3("Select date range"), 
                   start = "2000-01-01",
                   end = "2010-01-01"),
                 solidHeader = TRUE,
