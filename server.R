@@ -106,8 +106,6 @@ shinyServer(function(input, output, session) {
   })
   
   
-  
-  
   #Monhtly histogram plot for tab 3
   output$countM <- renderPlot(
     crash_df %>%

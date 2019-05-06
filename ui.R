@@ -69,7 +69,7 @@ shinyUI(dashboardPage(
                    tally of fatalities. After downloading this data, a variety of cleaning and organising was required to ensure it could be easily manipulated. 
                    In addition, it was compiled with another dataset containing the latitude and longitude values of world cities in order to develop the 
                    'Interactive Globe' tab. To clarify any ambiguities, the variable 'ratio' is the proportion of fatalities to those on board and the variable 'ground' represents the 
-                   number of fatalities on the ground")
+                   number of fatalities on the ground.")
               )
             )),
             fluidRow(column(
@@ -79,10 +79,10 @@ shinyUI(dashboardPage(
                 status = 'info',
                 solidHeader = T,
                 width = NULL,
-                h4("The motivation for this project comes in tow parts;Business and Personal. On the personal aspect, analsysis of this data enables you to settle any nerves you may have flying when you realise how infrequently accidents occur.
-                   Additionally, this data may help you plan your next holiday, particularly, which airline you book your travel with. From this business point of view,this data enables companies to understand what may have caused accidnets historically. Most importantly, they
-                   can analyse if a particular type of plane has more frequent incidences and from this they can target their safety focus. Finally, this data also provides summaries of the accidents that occurred. Utilising this may enable companies to discover what is the most frequent cause of 
-                   commercial flight accidents and therefore exercise focus on solving this particular issue")
+                h4("The motivation for this project comes in two parts;Business and Personal. On the personal aspect, analsysis of this data enables you to settle any nerves you may have flying when you realise how infrequently accidents occur.
+                   Additionally, this data may help you plan your next holiday, particularly, which airline you should book your travel with. From the business point of view,this data enables companies to understand what may have caused accidents historically. Most importantly, they
+                   can analyse if a particular type of plane has more frequent incidences and from this they can target their safety focus on certain inventory. Finally, this data also provides summaries of the accidents that occurred. Utilising this may enable companies to discover what is the most frequent cause of 
+                   commercial flight accidents and therefore exercise focus on solving this particular issue.")
               )
             ))), 
     tabItem(tabName = "globe",

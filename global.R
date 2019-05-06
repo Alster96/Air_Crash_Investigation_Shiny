@@ -1,9 +1,12 @@
 ## global.R ##
+library(dplyr)
 library(shinydashboard)
 library(shinyWidgets)
 library(ggplot2)
 library(shiny)
 library(plotly)
+#install.packages("rsconnect")
+library(rsconnect)
 Sys.setlocale(locale="C")
 # read csv file into a dataframe 
 crash_df = read.csv(file = 'cleaned_data.csv', stringsAsFactors = FALSE)
